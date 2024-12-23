@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddCart</title>
+    <style>
+        .item {
+          border: 1px solid black;
+          border-radius: 5px;
+          padding: 16px;
+          text-align: center;
+        }
+    
+        .cart {
+          border: 1px solid black;
+          border-radius: 5px;
+          padding: 16px;
+          text-align: center;
+        }
+      </style>
+</head>
+<body>
+    <h1>E-Commerce Store</h1>
+
+  <div class="item">
+    <img src="https://via.placeholder.com/150x80">
+    <p>Some text about the item..</p>
+    <button onclick="addToCart(this)">Add to Cart</button>
+    <button onclick="removeFromCart(this)">Remove from Cart</button>
+  </div>
+
+  <div class="item">
+    <img src="https://via.placeholder.com/150x80">
+    <p>Some text about the item..</p>
+    <button onclick="addToCart(this)">Add to Cart</button>
+    <button onclick="removeFromCart(this)">Remove from Cart</button>
+  </div>
+
+  <div class="item">
+    <img src="https://via.placeholder.com/150x80">
+    <p>Some text about the item..</p>
+    <button onclick="addToCart(this)">Add to Cart</button>
+    <button onclick="removeFromCart(this)">Remove from Cart</button>
+  </div>
+
+  <div class="cart">
+    <h2>Cart</h2>
+    <div class="cart-item">
+      <img src="https://via.placeholder.com/150x80">
+      <p>Some text about the item..</p>
+      <button onclick="removeFromCart(this)">Remove from Cart</button>
+    </div>
+  </div>
+  <script>
+    function addToCart(btn) {
+      var item = btn.parentElement;
+      var cart = document.querySelector(".cart");
+      var cloneItem = item.cloneNode(true);
+      cart.appendChild(cloneItem);
+      cloneItem.querySelector("button").innerText = "Remove from Cart";
+    }
+
+    function removeFromCart(btn) {
+      var item = btn.parentElement;
+      item.parentElement.removeChild(item);
+    }
+  </script>
+</body>
+</html>
